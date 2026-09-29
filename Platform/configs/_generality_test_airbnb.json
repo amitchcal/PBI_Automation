@@ -1,0 +1,8 @@
+{
+  "engagement": { "id": "_generality_test_airbnb", "name": "Airbnb Antwerp (generality test)" },
+  "data_root": "C:/Amit/_Courses/01 Data Analytics -Hero Vired/Capstone Project/Airbnb Pricing Dashboard/Dataset",
+  "sources": [
+    { "id": "listings", "path": "listings.csv" }, { "id": "calendar", "path": "calendar.csv" },
+    { "id": "hosts", "path": "hosts.csv" }, { "id": "reviews", "path": "reviews.csv" }
+  ]
+}

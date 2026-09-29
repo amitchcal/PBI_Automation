@@ -1,0 +1,18 @@
+@import "tailwindcss";
+@import "./brand.css";
+
+:root { color-scheme: light; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3 { font-family: var(--font-heading); letter-spacing: -0.01em; }
+:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 2px; border-radius: 6px; }
+::selection { background: var(--color-primary-soft); }
+.tabular { font-variant-numeric: tabular-nums; }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
+@keyframes shimmer { 0% { background-position: -400px 0 } 100% { background-position: 400px 0 } }
+.skeleton { background: linear-gradient(90deg, #eef2f7 25%, #e2e8f0 37%, #eef2f7 63%); background-size: 800px 100%; animation: shimmer 1.4s infinite linear; border-radius: 8px; }

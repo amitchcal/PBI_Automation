@@ -1,0 +1,21 @@
+{
+  "name": "Meridian Analytics",
+  "tagline": "Insight you can act on",
+  "logo": { "generate": true, "mark": "bars" },
+  "palette": {
+    "primary": "#2563EB",
+    "secondary": "#0F172A",
+    "accent": "#F59E0B",
+    "positive": "#059669",
+    "warning": "#D97706",
+    "negative": "#DC2626",
+    "background": "#F8FAFC",
+    "surface": "#FFFFFF",
+    "border": "#E2E8F0",
+    "text": "#0F172A",
+    "muted": "#475569",
+    "dataColors": ["#2563EB", "#0F766E", "#F59E0B", "#7C3AED", "#DB2777", "#0891B2", "#65A30D", "#64748B"]
+  },
+  "fonts": { "heading": "Segoe UI Semibold", "body": "Segoe UI", "webStack": "Inter, 'Segoe UI', system-ui, sans-serif" },
+  "shape": { "radius": 12 }
+}

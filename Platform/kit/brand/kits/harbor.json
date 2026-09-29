@@ -1,0 +1,21 @@
+{
+  "name": "Harbor & Finch",
+  "tagline": "Numbers that make sense",
+  "logo": { "generate": true, "mark": "ring" },
+  "palette": {
+    "primary": "#B91C1C",
+    "secondary": "#1C1917",
+    "accent": "#0E7490",
+    "positive": "#15803D",
+    "warning": "#B45309",
+    "negative": "#B91C1C",
+    "background": "#FAFAF9",
+    "surface": "#FFFFFF",
+    "border": "#E7E5E4",
+    "text": "#1C1917",
+    "muted": "#57534E",
+    "dataColors": ["#B91C1C", "#0E7490", "#CA8A04", "#4D7C0F", "#7E22CE", "#0369A1", "#BE185D", "#57534E"]
+  },
+  "fonts": { "heading": "Georgia", "body": "Calibri", "webStack": "'Source Sans 3', Calibri, system-ui, sans-serif" },
+  "shape": { "radius": 4 }
+}

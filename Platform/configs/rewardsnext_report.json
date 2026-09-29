@@ -1,0 +1,1714 @@
+{
+  "engagement": {
+    "id": "rewardsnext",
+    "project": "RewardsNext"
+  },
+  "brand_kit": "meridian",
+  "images": [
+    "logo-mark.png"
+  ],
+  "measures_table": "Key Measures",
+  "pages": [
+    {
+      "name": "overview",
+      "displayName": "Overview",
+      "visuals": [
+        {
+          "id": "title",
+          "type": "textbox",
+          "pos": [
+            24,
+            6,
+            520,
+            48
+          ],
+          "runs": [
+            {
+              "text": "Customer Offer Engagement",
+              "fontFamily": "Segoe UI Semibold",
+              "fontSize": "20pt",
+              "fontWeight": "bold"
+            }
+          ]
+        },
+        {
+          "id": "subtitle",
+          "type": "textbox",
+          "pos": [
+            24,
+            52,
+            520,
+            30
+          ],
+          "runs": [
+            {
+              "text": "Overview of 17,000 customers and 10 offers over a 30-day observation window",
+              "fontFamily": "Segoe UI",
+              "fontSize": "10pt"
+            }
+          ]
+        },
+        {
+          "id": "nav",
+          "type": "pageNavigator",
+          "pos": [
+            560,
+            16,
+            630,
+            44
+          ]
+        },
+        {
+          "id": "logo",
+          "type": "image",
+          "pos": [
+            1206,
+            14,
+            46,
+            46
+          ],
+          "image": "logo-mark.png"
+        },
+        {
+          "id": "slicer_gender",
+          "type": "slicer",
+          "pos": [
+            24,
+            84,
+            200,
+            62
+          ],
+          "field": "DimCustomer.Gender",
+          "title": "Gender"
+        },
+        {
+          "id": "slicer_age",
+          "type": "slicer",
+          "pos": [
+            236,
+            84,
+            200,
+            62
+          ],
+          "field": "DimCustomer.Age Band",
+          "title": "Age band"
+        },
+        {
+          "id": "slicer_income",
+          "type": "slicer",
+          "pos": [
+            448,
+            84,
+            200,
+            62
+          ],
+          "field": "DimCustomer.Income Band",
+          "title": "Income band"
+        },
+        {
+          "id": "slicer_level",
+          "type": "slicer",
+          "pos": [
+            660,
+            84,
+            200,
+            62
+          ],
+          "field": "DimCustomer.Engagement Level",
+          "title": "Engagement level"
+        },
+        {
+          "id": "kpi_customers",
+          "type": "card",
+          "pos": [
+            24,
+            160,
+            232,
+            104
+          ],
+          "measure": "Total Customers"
+        },
+        {
+          "id": "kpi_sent",
+          "type": "card",
+          "pos": [
+            272,
+            160,
+            232,
+            104
+          ],
+          "measure": "Offers Sent"
+        },
+        {
+          "id": "kpi_completed",
+          "type": "card",
+          "pos": [
+            520,
+            160,
+            232,
+            104
+          ],
+          "measure": "Offers Completed"
+        },
+        {
+          "id": "kpi_redemption",
+          "type": "card",
+          "pos": [
+            768,
+            160,
+            232,
+            104
+          ],
+          "measure": "Redemption Rate"
+        },
+        {
+          "id": "kpi_avg_txn",
+          "type": "card",
+          "pos": [
+            1016,
+            160,
+            232,
+            104
+          ],
+          "measure": "Average Transaction Amount"
+        },
+        {
+          "id": "trend",
+          "type": "clusteredColumnChart",
+          "pos": [
+            24,
+            280,
+            740,
+            388
+          ],
+          "category": "DimObservationDay.Observation Day",
+          "measures": [
+            "Offers Sent",
+            "Offers Viewed",
+            "Offers Completed"
+          ],
+          "title": "Offers sent, viewed and completed by observation day"
+        },
+        {
+          "id": "by_type",
+          "type": "clusteredBarChart",
+          "pos": [
+            780,
+            280,
+            468,
+            388
+          ],
+          "category": "DimOffer.Offer Type",
+          "measures": [
+            "Redemption Rate"
+          ],
+          "labels": true,
+          "title": "Redemption rate by offer type",
+          "tooltip": "tip_offers"
+        },
+        {
+          "id": "footnote",
+          "type": "textbox",
+          "pos": [
+            24,
+            680,
+            1224,
+            30
+          ],
+          "runs": [
+            {
+              "text": "Redemption rate = offers completed divided by offers sent, excluding informational offers, which cannot be completed. Observation day 0 is the first day of the 30-day window.",
+              "fontFamily": "Segoe UI",
+              "fontSize": "9pt"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "funnel",
+      "displayName": "Offer Funnel",
+      "visuals": [
+        {
+          "id": "title",
+          "type": "textbox",
+          "pos": [
+            24,
+            6,
+            520,
+            48
+          ],
+          "runs": [
+            {
+              "text": "Offer funnel",
+              "fontFamily": "Segoe UI Semibold",
+              "fontSize": "20pt",
+              "fontWeight": "bold"
+            }
+          ]
+        },
+        {
+          "id": "subtitle",
+          "type": "textbox",
+          "pos": [
+            24,
+            52,
+            520,
+            30
+          ],
+          "runs": [
+            {
+              "text": "How many offers were sent, viewed and completed, and what customers bought afterwards",
+              "fontFamily": "Segoe UI",
+              "fontSize": "10pt"
+            }
+          ]
+        },
+        {
+          "id": "nav",
+          "type": "pageNavigator",
+          "pos": [
+            560,
+            16,
+            630,
+            44
+          ]
+        },
+        {
+          "id": "logo",
+          "type": "image",
+          "pos": [
+            1206,
+            14,
+            46,
+            46
+          ],
+          "image": "logo-mark.png"
+        },
+        {
+          "id": "slicer_gender",
+          "type": "slicer",
+          "pos": [
+            24,
+            84,
+            200,
+            62
+          ],
+          "field": "DimCustomer.Gender",
+          "title": "Gender"
+        },
+        {
+          "id": "slicer_age",
+          "type": "slicer",
+          "pos": [
+            236,
+            84,
+            200,
+            62
+          ],
+          "field": "DimCustomer.Age Band",
+          "title": "Age band"
+        },
+        {
+          "id": "slicer_income",
+          "type": "slicer",
+          "pos": [
+            448,
+            84,
+            200,
+            62
+          ],
+          "field": "DimCustomer.Income Band",
+          "title": "Income band"
+        },
+        {
+          "id": "slicer_tenure",
+          "type": "slicer",
+          "pos": [
+            660,
+            84,
+            200,
+            62
+          ],
+          "field": "DimCustomer.Tenure Cohort",
+          "title": "Tenure cohort"
+        },
+        {
+          "id": "kpi_sent",
+          "type": "card",
+          "pos": [
+            24,
+            160,
+            196,
+            96
+          ],
+          "measure": "Offers Sent"
+        },
+        {
+          "id": "kpi_viewed",
+          "type": "card",
+          "pos": [
+            232,
+            160,
+            196,
+            96
+          ],
+          "measure": "Offers Viewed"
+        },
+        {
+          "id": "kpi_completed",
+          "type": "card",
+          "pos": [
+            440,
+            160,
+            196,
+            96
+          ],
+          "measure": "Offers Completed"
+        },
+        {
+          "id": "kpi_view_rate",
+          "type": "card",
+          "pos": [
+            648,
+            160,
+            196,
+            96
+          ],
+          "measure": "View Rate"
+        },
+        {
+          "id": "kpi_redemption",
+          "type": "card",
+          "pos": [
+            856,
+            160,
+            196,
+            96
+          ],
+          "measure": "Redemption Rate"
+        },
+        {
+          "id": "kpi_funnel_txn",
+          "type": "card",
+          "pos": [
+            1064,
+            160,
+            184,
+            96
+          ],
+          "measure": "Funnel Transactions"
+        },
+        {
+          "id": "funnel",
+          "type": "funnel",
+          "pos": [
+            24,
+            272,
+            560,
+            400
+          ],
+          "category": "FunnelSteps.Step",
+          "measures": [
+            "Funnel Value"
+          ],
+          "title": "Offers received, viewed, completed and purchases (decision D4a)"
+        },
+        {
+          "id": "rates_by_type",
+          "type": "clusteredBarChart",
+          "pos": [
+            600,
+            272,
+            648,
+            196
+          ],
+          "category": "DimOffer.Offer Type",
+          "measures": [
+            "View Rate",
+            "Redemption Rate"
+          ],
+          "labels": true,
+          "title": "View rate and redemption rate by offer type",
+          "tooltip": "tip_offers"
+        },
+        {
+          "id": "rates_by_channel",
+          "type": "clusteredBarChart",
+          "pos": [
+            600,
+            480,
+            648,
+            192
+          ],
+          "category": "OfferChannel.Channel",
+          "measures": [
+            "View Rate",
+            "Redemption Rate"
+          ],
+          "labels": true,
+          "title": "View rate and redemption rate by channel (channels overlap)",
+          "tooltip": "tip_offers"
+        },
+        {
+          "id": "footnote",
+          "type": "textbox",
+          "pos": [
+            24,
+            676,
+            1224,
+            38
+          ],
+          "runs": [
+            {
+              "text": "Funnel percentage = completed as a share of all offers sent; the redemption rate excludes informational offers, so it is higher. Step 4, purchases, counts purchases by customers who viewed or completed the selected offers, is not time-ordered, and is not a conversion rate; it can exceed step 1 because one customer can buy more than once (decision D4a).",
+              "fontFamily": "Segoe UI",
+              "fontSize": "8pt"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "segmentation",
+      "displayName": "Customer Segmentation",
+      "visuals": [
+        {
+          "id": "title",
+          "type": "textbox",
+          "pos": [
+            24,
+            6,
+            520,
+            48
+          ],
+          "runs": [
+            {
+              "text": "Customer segmentation",
+              "fontFamily": "Segoe UI Semibold",
+              "fontSize": "20pt",
+              "fontWeight": "bold"
+            }
+          ]
+        },
+        {
+          "id": "subtitle",
+          "type": "textbox",
+          "pos": [
+            24,
+            52,
+            520,
+            30
+          ],
+          "runs": [
+            {
+              "text": "Which customers redeem offers: age, income, gender and tenure",
+              "fontFamily": "Segoe UI",
+              "fontSize": "10pt"
+            }
+          ]
+        },
+        {
+          "id": "nav",
+          "type": "pageNavigator",
+          "pos": [
+            560,
+            16,
+            630,
+            44
+          ]
+        },
+        {
+          "id": "logo",
+          "type": "image",
+          "pos": [
+            1206,
+            14,
+            46,
+            46
+          ],
+          "image": "logo-mark.png"
+        },
+        {
+          "id": "slicer_gender",
+          "type": "slicer",
+          "pos": [
+            24,
+            84,
+            200,
+            62
+          ],
+          "field": "DimCustomer.Gender",
+          "title": "Gender"
+        },
+        {
+          "id": "slicer_tenure",
+          "type": "slicer",
+          "pos": [
+            236,
+            84,
+            200,
+            62
+          ],
+          "field": "DimCustomer.Tenure Cohort",
+          "title": "Tenure cohort"
+        },
+        {
+          "id": "slicer_type",
+          "type": "slicer",
+          "pos": [
+            448,
+            84,
+            200,
+            62
+          ],
+          "field": "DimOffer.Offer Type",
+          "title": "Offer type"
+        },
+        {
+          "id": "slicer_channel",
+          "type": "slicer",
+          "pos": [
+            660,
+            84,
+            200,
+            62
+          ],
+          "field": "OfferChannel.Channel",
+          "title": "Channel"
+        },
+        {
+          "id": "kpi_customers",
+          "type": "card",
+          "pos": [
+            24,
+            160,
+            294,
+            96
+          ],
+          "measure": "Total Customers"
+        },
+        {
+          "id": "kpi_share",
+          "type": "card",
+          "pos": [
+            334,
+            160,
+            294,
+            96
+          ],
+          "measure": "Share of Customers"
+        },
+        {
+          "id": "kpi_redemption",
+          "type": "card",
+          "pos": [
+            644,
+            160,
+            294,
+            96
+          ],
+          "measure": "Redemption Rate"
+        },
+        {
+          "id": "kpi_vs_all",
+          "type": "card",
+          "pos": [
+            954,
+            160,
+            294,
+            96
+          ],
+          "measure": "Redemption Rate vs All Customers"
+        },
+        {
+          "id": "by_age",
+          "type": "clusteredColumnChart",
+          "pos": [
+            24,
+            268,
+            400,
+            180
+          ],
+          "category": "DimCustomer.Age Band",
+          "sort": true,
+          "measures": [
+            "Redemption Rate"
+          ],
+          "labels": true,
+          "title": "Redemption rate by age band",
+          "tooltip": "tip_customers"
+        },
+        {
+          "id": "by_income",
+          "type": "clusteredColumnChart",
+          "pos": [
+            440,
+            268,
+            400,
+            180
+          ],
+          "category": "DimCustomer.Income Band",
+          "sort": true,
+          "measures": [
+            "Redemption Rate"
+          ],
+          "labels": true,
+          "title": "Redemption rate by income band",
+          "tooltip": "tip_customers"
+        },
+        {
+          "id": "by_gender",
+          "type": "clusteredColumnChart",
+          "pos": [
+            856,
+            268,
+            392,
+            180
+          ],
+          "category": "DimCustomer.Gender",
+          "sort": true,
+          "measures": [
+            "Redemption Rate"
+          ],
+          "labels": true,
+          "title": "Redemption rate by gender",
+          "tooltip": "tip_customers"
+        },
+        {
+          "id": "heatmap",
+          "type": "pivotTable",
+          "pos": [
+            24,
+            458,
+            600,
+            216
+          ],
+          "rows": "DimCustomer.Age Band",
+          "columns": "DimCustomer.Income Band",
+          "measure": "Redemption Rate",
+          "heat": {
+            "min": "#EFF6FF",
+            "max": "#2563EB"
+          },
+          "title": "Redemption rate by age band and income band (darker is higher)",
+          "tooltip": "tip_customers"
+        },
+        {
+          "id": "by_tenure",
+          "type": "clusteredColumnChart",
+          "pos": [
+            640,
+            458,
+            608,
+            216
+          ],
+          "category": "DimCustomer.Tenure Cohort",
+          "sort": true,
+          "measures": [
+            "Redemption Rate"
+          ],
+          "labels": true,
+          "title": "Redemption rate by tenure cohort",
+          "tooltip": "tip_customers"
+        },
+        {
+          "id": "footnote",
+          "type": "textbox",
+          "pos": [
+            24,
+            680,
+            1224,
+            32
+          ],
+          "runs": [
+            {
+              "text": "Redemption rate = offers completed divided by offers sent, excluding informational offers. The 2,175 customers with unknown age and undisclosed income and gender are the same people. Channels overlap.",
+              "fontFamily": "Segoe UI",
+              "fontSize": "8pt"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "performance",
+      "displayName": "Offer Performance",
+      "visuals": [
+        {
+          "id": "title",
+          "type": "textbox",
+          "pos": [
+            24,
+            6,
+            520,
+            48
+          ],
+          "runs": [
+            {
+              "text": "Offer performance",
+              "fontFamily": "Segoe UI Semibold",
+              "fontSize": "20pt",
+              "fontWeight": "bold"
+            }
+          ]
+        },
+        {
+          "id": "subtitle",
+          "type": "textbox",
+          "pos": [
+            24,
+            52,
+            520,
+            30
+          ],
+          "runs": [
+            {
+              "text": "Which offer types, rewards and channels get viewed and completed",
+              "fontFamily": "Segoe UI",
+              "fontSize": "10pt"
+            }
+          ]
+        },
+        {
+          "id": "nav",
+          "type": "pageNavigator",
+          "pos": [
+            560,
+            16,
+            630,
+            44
+          ]
+        },
+        {
+          "id": "logo",
+          "type": "image",
+          "pos": [
+            1206,
+            14,
+            46,
+            46
+          ],
+          "image": "logo-mark.png"
+        },
+        {
+          "id": "slicer_type",
+          "type": "slicer",
+          "pos": [
+            24,
+            84,
+            200,
+            62
+          ],
+          "field": "DimOffer.Offer Type",
+          "title": "Offer type"
+        },
+        {
+          "id": "slicer_channel",
+          "type": "slicer",
+          "pos": [
+            236,
+            84,
+            200,
+            62
+          ],
+          "field": "OfferChannel.Channel",
+          "title": "Channel"
+        },
+        {
+          "id": "slicer_gender",
+          "type": "slicer",
+          "pos": [
+            448,
+            84,
+            200,
+            62
+          ],
+          "field": "DimCustomer.Gender",
+          "title": "Gender"
+        },
+        {
+          "id": "slicer_age",
+          "type": "slicer",
+          "pos": [
+            660,
+            84,
+            200,
+            62
+          ],
+          "field": "DimCustomer.Age Band",
+          "title": "Age band"
+        },
+        {
+          "id": "kpi_sent",
+          "type": "card",
+          "pos": [
+            24,
+            150,
+            294,
+            84
+          ],
+          "measure": "Offers Sent"
+        },
+        {
+          "id": "kpi_view_rate",
+          "type": "card",
+          "pos": [
+            334,
+            150,
+            294,
+            84
+          ],
+          "measure": "View Rate"
+        },
+        {
+          "id": "kpi_redemption",
+          "type": "card",
+          "pos": [
+            644,
+            150,
+            294,
+            84
+          ],
+          "measure": "Redemption Rate"
+        },
+        {
+          "id": "kpi_rewards",
+          "type": "card",
+          "pos": [
+            954,
+            150,
+            294,
+            84
+          ],
+          "measure": "Rewards Paid"
+        },
+        {
+          "id": "by_type",
+          "type": "clusteredColumnChart",
+          "pos": [
+            24,
+            238,
+            400,
+            180
+          ],
+          "category": "DimOffer.Offer Type",
+          "sort": true,
+          "measures": [
+            "Redemption Rate"
+          ],
+          "labels": true,
+          "title": "Redemption rate by offer type",
+          "tooltip": "tip_offers"
+        },
+        {
+          "id": "by_reward",
+          "type": "clusteredColumnChart",
+          "pos": [
+            440,
+            238,
+            400,
+            180
+          ],
+          "category": "DimOffer.Reward Label",
+          "sort": true,
+          "measures": [
+            "Redemption Rate"
+          ],
+          "labels": true,
+          "title": "Redemption rate by reward",
+          "tooltip": "tip_offers"
+        },
+        {
+          "id": "by_channel",
+          "type": "clusteredColumnChart",
+          "pos": [
+            856,
+            238,
+            392,
+            180
+          ],
+          "category": "OfferChannel.Channel",
+          "sort": true,
+          "measures": [
+            "Redemption Rate"
+          ],
+          "labels": true,
+          "title": "Redemption rate by channel (channels overlap)",
+          "tooltip": "tip_offers"
+        },
+        {
+          "id": "scatter",
+          "type": "scatterChart",
+          "pos": [
+            24,
+            422,
+            560,
+            254
+          ],
+          "category": "DimOffer.Offer Label",
+          "x": "Minimum Spend of Selected Offers",
+          "y": "Redemption Rate",
+          "size": "Offers Sent",
+          "title": "Minimum spend against redemption rate, one dot per offer",
+          "series": "DimOffer.Offer Type",
+          "tooltip": "tip_offers",
+          "x_axis_end": 22
+        },
+        {
+          "id": "scorecard",
+          "type": "tableEx",
+          "pos": [
+            600,
+            422,
+            648,
+            254
+          ],
+          "columns": [
+            "DimOffer.Offer Label"
+          ],
+          "measures": [
+            "Offers Sent",
+            "Offers Viewed",
+            "Offers Completed",
+            "View Rate",
+            "Redemption Rate"
+          ],
+          "title": "Offer scorecard (right-click an offer, then Drill through, for its detail)"
+        },
+        {
+          "id": "footnote",
+          "type": "textbox",
+          "pos": [
+            24,
+            680,
+            1224,
+            32
+          ],
+          "runs": [
+            {
+              "text": "Redemption rate = offers completed divided by offers sent, excluding informational offers, which cannot be completed and so do not appear on the scatter. Channels overlap: channels are listed per offer, not per event.",
+              "fontFamily": "Segoe UI",
+              "fontSize": "8pt"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "behavior",
+      "displayName": "Transaction Behavior",
+      "visuals": [
+        {
+          "id": "title",
+          "type": "textbox",
+          "pos": [
+            24,
+            6,
+            520,
+            48
+          ],
+          "runs": [
+            {
+              "text": "Transaction behaviour",
+              "fontFamily": "Segoe UI Semibold",
+              "fontSize": "20pt",
+              "fontWeight": "bold"
+            }
+          ]
+        },
+        {
+          "id": "subtitle",
+          "type": "textbox",
+          "pos": [
+            24,
+            52,
+            520,
+            30
+          ],
+          "runs": [
+            {
+              "text": "Spending by customers who completed an offer and those who never did",
+              "fontFamily": "Segoe UI",
+              "fontSize": "10pt"
+            }
+          ]
+        },
+        {
+          "id": "nav",
+          "type": "pageNavigator",
+          "pos": [
+            560,
+            16,
+            630,
+            44
+          ]
+        },
+        {
+          "id": "logo",
+          "type": "image",
+          "pos": [
+            1206,
+            14,
+            46,
+            46
+          ],
+          "image": "logo-mark.png"
+        },
+        {
+          "id": "slicer_gender",
+          "type": "slicer",
+          "pos": [
+            24,
+            84,
+            200,
+            62
+          ],
+          "field": "DimCustomer.Gender",
+          "title": "Gender"
+        },
+        {
+          "id": "slicer_age",
+          "type": "slicer",
+          "pos": [
+            236,
+            84,
+            200,
+            62
+          ],
+          "field": "DimCustomer.Age Band",
+          "title": "Age band"
+        },
+        {
+          "id": "slicer_income",
+          "type": "slicer",
+          "pos": [
+            448,
+            84,
+            200,
+            62
+          ],
+          "field": "DimCustomer.Income Band",
+          "title": "Income band"
+        },
+        {
+          "id": "slicer_tenure",
+          "type": "slicer",
+          "pos": [
+            660,
+            84,
+            200,
+            62
+          ],
+          "field": "DimCustomer.Tenure Cohort",
+          "title": "Tenure cohort"
+        },
+        {
+          "id": "avg_by_day",
+          "type": "lineChart",
+          "pos": [
+            24,
+            268,
+            608,
+            250
+          ],
+          "category": "DimObservationDay.Observation Day",
+          "series": "DimCustomer.Offer Completion Group",
+          "measures": [
+            "Average Transaction Amount"
+          ],
+          "title": "Average transaction amount by observation day"
+        },
+        {
+          "id": "freq_by_day",
+          "type": "lineChart",
+          "pos": [
+            648,
+            268,
+            600,
+            250
+          ],
+          "category": "DimObservationDay.Observation Day",
+          "series": "DimCustomer.Offer Completion Group",
+          "measures": [
+            "Daily Transactions per Customer"
+          ],
+          "title": "Purchases per customer by observation day"
+        },
+        {
+          "id": "ba_label",
+          "type": "textbox",
+          "pos": [
+            24,
+            524,
+            1224,
+            30
+          ],
+          "runs": [
+            {
+              "text": "Before and after each customer's first completed offer (customers who completed at least one offer)",
+              "fontFamily": "Segoe UI Semibold",
+              "fontSize": "9pt",
+              "fontWeight": "bold"
+            }
+          ]
+        },
+        {
+          "id": "footnote",
+          "type": "textbox",
+          "pos": [
+            24,
+            660,
+            1224,
+            56
+          ],
+          "runs": [
+            {
+              "text": "This shows association, not cause: customers who complete offers may already spend more. Before and after compares each customer's purchases either side of their first completed offer; the purchase at the completion hour is excluded. Offer and channel slicers are left out because purchases carry no offer.",
+              "fontFamily": "Segoe UI",
+              "fontSize": "8pt"
+            }
+          ]
+        },
+        {
+          "id": "kpi_txn",
+          "type": "card",
+          "pos": [
+            24,
+            160,
+            294,
+            96
+          ],
+          "measure": "Transactions"
+        },
+        {
+          "id": "kpi_spend",
+          "type": "card",
+          "pos": [
+            334,
+            160,
+            294,
+            96
+          ],
+          "measure": "Total Spend"
+        },
+        {
+          "id": "kpi_avg",
+          "type": "card",
+          "pos": [
+            644,
+            160,
+            294,
+            96
+          ],
+          "measure": "Average Transaction Amount"
+        },
+        {
+          "id": "kpi_perc",
+          "type": "card",
+          "pos": [
+            954,
+            160,
+            294,
+            96
+          ],
+          "measure": "Transactions per Customer"
+        },
+        {
+          "id": "ba_avg_before",
+          "type": "card",
+          "pos": [
+            24,
+            554,
+            294,
+            96
+          ],
+          "measure": "Average Amount Before Completion"
+        },
+        {
+          "id": "ba_avg_after",
+          "type": "card",
+          "pos": [
+            334,
+            554,
+            294,
+            96
+          ],
+          "measure": "Average Amount After Completion"
+        },
+        {
+          "id": "ba_t_before",
+          "type": "card",
+          "pos": [
+            644,
+            554,
+            294,
+            96
+          ],
+          "measure": "Transactions Before First Completion"
+        },
+        {
+          "id": "ba_t_after",
+          "type": "card",
+          "pos": [
+            954,
+            554,
+            294,
+            96
+          ],
+          "measure": "Transactions After First Completion"
+        }
+      ]
+    },
+    {
+      "name": "offer_detail",
+      "displayName": "Offer detail",
+      "type": "Drillthrough",
+      "drill_field": "DimOffer.Offer Label",
+      "visuals": [
+        {
+          "id": "title",
+          "type": "textbox",
+          "pos": [
+            24,
+            6,
+            820,
+            48
+          ],
+          "runs": [
+            {
+              "text": "Offer detail",
+              "fontFamily": "Segoe UI Semibold",
+              "fontSize": "20pt",
+              "fontWeight": "bold"
+            }
+          ]
+        },
+        {
+          "id": "subtitle",
+          "type": "textbox",
+          "pos": [
+            24,
+            52,
+            820,
+            30
+          ],
+          "runs": [
+            {
+              "text": "Customers who received the selected offer",
+              "fontFamily": "Segoe UI",
+              "fontSize": "10pt"
+            }
+          ]
+        },
+        {
+          "id": "logo",
+          "type": "image",
+          "pos": [
+            1206,
+            14,
+            46,
+            46
+          ],
+          "image": "logo-mark.png"
+        },
+        {
+          "id": "kpi_sent",
+          "type": "card",
+          "pos": [
+            24,
+            96,
+            294,
+            96
+          ],
+          "measure": "Offers Sent"
+        },
+        {
+          "id": "kpi_view",
+          "type": "card",
+          "pos": [
+            334,
+            96,
+            294,
+            96
+          ],
+          "measure": "View Rate"
+        },
+        {
+          "id": "kpi_redemption",
+          "type": "card",
+          "pos": [
+            644,
+            96,
+            294,
+            96
+          ],
+          "measure": "Redemption Rate"
+        },
+        {
+          "id": "kpi_rewards",
+          "type": "card",
+          "pos": [
+            954,
+            96,
+            294,
+            96
+          ],
+          "measure": "Rewards Paid"
+        },
+        {
+          "id": "by_age",
+          "type": "clusteredColumnChart",
+          "pos": [
+            24,
+            204,
+            400,
+            200
+          ],
+          "category": "DimCustomer.Age Band",
+          "sort": true,
+          "measures": [
+            "Redemption Rate"
+          ],
+          "labels": true,
+          "title": "Redemption rate by age band, this offer"
+        },
+        {
+          "id": "by_income",
+          "type": "clusteredColumnChart",
+          "pos": [
+            440,
+            204,
+            400,
+            200
+          ],
+          "category": "DimCustomer.Income Band",
+          "sort": true,
+          "measures": [
+            "Redemption Rate"
+          ],
+          "labels": true,
+          "title": "Redemption rate by income band, this offer"
+        },
+        {
+          "id": "by_gender",
+          "type": "clusteredColumnChart",
+          "pos": [
+            856,
+            204,
+            392,
+            200
+          ],
+          "category": "DimCustomer.Gender",
+          "sort": true,
+          "measures": [
+            "Redemption Rate"
+          ],
+          "labels": true,
+          "title": "Redemption rate by gender, this offer"
+        },
+        {
+          "id": "customers",
+          "type": "tableEx",
+          "pos": [
+            24,
+            416,
+            1224,
+            260
+          ],
+          "columns": [
+            "DimCustomer.Customer ID",
+            "DimCustomer.Age Band",
+            "DimCustomer.Gender",
+            "DimCustomer.Income Band"
+          ],
+          "measures": [
+            "Offers Sent",
+            "Offers Viewed",
+            "Offers Completed"
+          ],
+          "title": "Customers who received this offer (right-click a customer, then Drill through, for their full history)"
+        },
+        {
+          "id": "footnote",
+          "type": "textbox",
+          "pos": [
+            24,
+            684,
+            1224,
+            30
+          ],
+          "runs": [
+            {
+              "text": "Redemption rate = offers completed divided by offers sent, excluding informational offers.",
+              "fontFamily": "Segoe UI",
+              "fontSize": "8pt"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "customer_detail",
+      "displayName": "Customer detail",
+      "type": "Drillthrough",
+      "drill_field": "DimCustomer.Customer ID",
+      "visuals": [
+        {
+          "id": "title",
+          "type": "textbox",
+          "pos": [
+            24,
+            6,
+            820,
+            48
+          ],
+          "runs": [
+            {
+              "text": "Customer detail",
+              "fontFamily": "Segoe UI Semibold",
+              "fontSize": "20pt",
+              "fontWeight": "bold"
+            }
+          ]
+        },
+        {
+          "id": "subtitle",
+          "type": "textbox",
+          "pos": [
+            24,
+            52,
+            820,
+            30
+          ],
+          "runs": [
+            {
+              "text": "One customer's profile and every event in the 30-day window",
+              "fontFamily": "Segoe UI",
+              "fontSize": "10pt"
+            }
+          ]
+        },
+        {
+          "id": "logo",
+          "type": "image",
+          "pos": [
+            1206,
+            14,
+            46,
+            46
+          ],
+          "image": "logo-mark.png"
+        },
+        {
+          "id": "profile",
+          "type": "tableEx",
+          "pos": [
+            24,
+            96,
+            1224,
+            70
+          ],
+          "columns": [
+            "DimCustomer.Gender",
+            "DimCustomer.Age Band",
+            "DimCustomer.Income Band",
+            "DimCustomer.Tenure Cohort",
+            "DimCustomer.Engagement Tier"
+          ],
+          "measures": [],
+          "title": "Profile"
+        },
+        {
+          "id": "kpi_sent",
+          "type": "card",
+          "pos": [
+            24,
+            178,
+            294,
+            92
+          ],
+          "measure": "Offers Sent"
+        },
+        {
+          "id": "kpi_completed",
+          "type": "card",
+          "pos": [
+            334,
+            178,
+            294,
+            92
+          ],
+          "measure": "Offers Completed"
+        },
+        {
+          "id": "kpi_txn",
+          "type": "card",
+          "pos": [
+            644,
+            178,
+            294,
+            92
+          ],
+          "measure": "Transactions"
+        },
+        {
+          "id": "kpi_spend",
+          "type": "card",
+          "pos": [
+            954,
+            178,
+            294,
+            92
+          ],
+          "measure": "Total Spend"
+        },
+        {
+          "id": "events",
+          "type": "tableEx",
+          "pos": [
+            24,
+            282,
+            1224,
+            394
+          ],
+          "columns": [
+            "FactEvents.Hours Since Start",
+            "FactEvents.Event",
+            "DimOffer.Offer Label",
+            "FactEvents.Amount",
+            "FactEvents.Reward",
+            "FactEvents.EventID"
+          ],
+          "measures": [],
+          "sort": "FactEvents.Hours Since Start",
+          "title": "Every event, in time order (hours since the start of the window)"
+        },
+        {
+          "id": "footnote",
+          "type": "textbox",
+          "pos": [
+            24,
+            684,
+            1224,
+            30
+          ],
+          "runs": [
+            {
+              "text": "Amount is shown for purchases and Reward for completed offers. Hour 0 is the start of the 30-day window.",
+              "fontFamily": "Segoe UI",
+              "fontSize": "8pt"
+            }
+          ]
+        }
+      ],
+      "keep_only_drill_field": true
+    },
+    {
+      "name": "tip_customers",
+      "displayName": "Customer group tooltip",
+      "type": "Tooltip",
+      "width": 320,
+      "height": 240,
+      "visuals": [
+        {
+          "id": "t0",
+          "type": "card",
+          "pos": [
+            8,
+            8,
+            148,
+            108
+          ],
+          "measure": "Total Customers"
+        },
+        {
+          "id": "t1",
+          "type": "card",
+          "pos": [
+            164,
+            8,
+            148,
+            108
+          ],
+          "measure": "Redemption Rate"
+        },
+        {
+          "id": "t2",
+          "type": "card",
+          "pos": [
+            8,
+            124,
+            148,
+            108
+          ],
+          "measure": "View Rate"
+        },
+        {
+          "id": "t3",
+          "type": "card",
+          "pos": [
+            164,
+            124,
+            148,
+            108
+          ],
+          "measure": "Average Transaction Amount"
+        }
+      ]
+    },
+    {
+      "name": "tip_offers",
+      "displayName": "Offer tooltip",
+      "type": "Tooltip",
+      "width": 320,
+      "height": 240,
+      "visuals": [
+        {
+          "id": "t0",
+          "type": "card",
+          "pos": [
+            8,
+            8,
+            148,
+            108
+          ],
+          "measure": "Offers Sent"
+        },
+        {
+          "id": "t1",
+          "type": "card",
+          "pos": [
+            164,
+            8,
+            148,
+            108
+          ],
+          "measure": "Redemption Rate"
+        },
+        {
+          "id": "t2",
+          "type": "card",
+          "pos": [
+            8,
+            124,
+            148,
+            108
+          ],
+          "measure": "View Rate"
+        },
+        {
+          "id": "t3",
+          "type": "card",
+          "pos": [
+            164,
+            124,
+            148,
+            108
+          ],
+          "measure": "Minimum Spend of Selected Offers"
+        }
+      ]
+    }
+  ]
+}

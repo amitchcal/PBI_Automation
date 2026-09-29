@@ -1,0 +1,31 @@
+# --- Dependencies & build output (regenerable) ---
+Platform/web/node_modules/
+Platform/web/.next/
+
+# --- Python cache ---
+__pycache__/
+*.pyc
+
+# --- Secrets and per-engagement runtime state: never commit ---
+# Platform/web/data/.secret.key encrypts any database/network credentials a user saves in the
+# web app; Platform/web/data/engagements/ holds uploaded files, activity logs and engagement state.
+Platform/web/data/
+
+# --- Client-specific sample data and generated demo outputs ---
+# This repo is the reusable kit/template; the RewardsNext dataset and everything the pipeline
+# generated from it (reports, docs, decks, PBIP projects, spikes) stay local, not in the template repo.
+RewardsNext_datasets/
+Platform/outputs/
+Platform/spikes/
+Platform/kit/brand/out/
+
+# --- Client-engagement-specific planning documents (RewardsNext only) ---
+Problem_Statement.pdf
+Data_Description.pdf
+RewardsNext_Project_Plan.xlsx
+RewardsNext_Automation_Checklist.xlsx
+
+# --- OS / editor ---
+.DS_Store
+Thumbs.db
+*.swp

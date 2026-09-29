@@ -1,0 +1,114 @@
+{
+  "engagement": { "id": "rewardsnext", "name": "RewardsNext Customer Offer Engagement", "project": "RewardsNext" },
+  "data_root": "../../RewardsNext_datasets",
+  "sources": [
+    { "id": "customers", "path": "customers.csv", "type": "csv" },
+    { "id": "events", "path": "events.csv", "type": "csv" },
+    { "id": "offers", "path": "offers.csv", "type": "csv" },
+    { "id": "data_dictionary", "path": "data_dictionary.csv", "type": "csv" }
+  ],
+  "expected": {
+    "events": { "rows": 100000, "tolerance": 0.2 },
+    "customers": { "rows": 17000, "tolerance": 0.05 }
+  },
+  "assumptions_to_check": [
+    {
+      "title": "events.time: is it relative to each customer's membership date?",
+      "source": "events", "columns": ["time", "customers.became_member_on"],
+      "evidence": "Manual review: the data description says to add time (hours) to became_member_on. Members joined 2013 to 2018 while events fall in one 30-day window, so that would spread events over five years.",
+      "proposed_rule": "Use observation day (hours divided by 24) as the time axis instead of a calendar date.",
+      "options": ["Use observation day (recommended)", "Add to membership date as described"]
+    }
+  ],
+  "profiling": { "max_top_values": 30 },
+  "tables": [
+    {
+      "name": "DimCustomer", "source": "customers", "role": "dimension",
+      "reason": "Decisions I01, I02, I04 (blank gender/income kept, age 118 = unknown)",
+      "steps": [
+        { "type": "date_yyyymmdd", "from": "became_member_on", "name": "Member Since" },
+        { "type": "year", "from": "Member Since", "name": "Membership Year" },
+        { "type": "null_if_equals", "from": "age", "value": 118, "name": "Age" },
+        { "type": "flag", "from": "age", "op": "not_equals", "value": 118, "name": "Profile Disclosed" },
+        { "type": "map_labels", "from": "gender", "mapping": { "M": "Male", "F": "Female", "O": "Other" }, "null_label": "Not disclosed", "name": "Gender" }
+      ],
+      "select": [
+        { "from": "customer_id", "name": "Customer ID", "type": "text" },
+        { "name": "Member Since", "type": "date" },
+        { "name": "Membership Year", "type": "int" },
+        { "name": "Gender", "type": "text" },
+        { "name": "Age", "type": "int" },
+        { "from": "income", "name": "Income", "type": "number" },
+        { "name": "Profile Disclosed", "type": "logical" }
+      ]
+    },
+    {
+      "name": "DimOffer", "source": "offers", "role": "dimension",
+      "reason": "Offer lookup with type labels and a readable label for visuals",
+      "steps": [
+        { "type": "map_labels", "from": "offer_type", "mapping": { "bogo": "BOGO", "discount": "Discount", "informational": "Informational" }, "null_label": "Unknown", "name": "Offer Type" },
+        { "type": "flag", "from": "offer_type", "op": "equals", "value": "informational", "name": "Is Informational" },
+        { "type": "count_list", "from": "channels", "name": "Channel Count" },
+        { "type": "label", "template": "{Offer Type} | spend {difficulty} | reward {reward} | {duration}d", "name": "Offer Label" }
+      ],
+      "select": [
+        { "from": "offer_id", "name": "Offer ID", "type": "text" },
+        { "name": "Offer Type", "type": "text" },
+        { "from": "difficulty", "name": "Minimum Spend", "type": "int" },
+        { "from": "reward", "name": "Reward Amount", "type": "int" },
+        { "from": "duration", "name": "Duration Days", "type": "int" },
+        { "name": "Is Informational", "type": "logical" },
+        { "name": "Channel Count", "type": "int" },
+        { "name": "Offer Label", "type": "text" }
+      ]
+    },
+    {
+      "name": "OfferChannel", "source": "offers", "role": "bridge",
+      "reason": "Channels list expanded so channel effectiveness can be analysed",
+      "steps": [
+        { "type": "expand_list", "from": "channels", "name": "Channel" }
+      ],
+      "select": [
+        { "from": "offer_id", "name": "Offer ID", "type": "text" },
+        { "name": "Channel", "type": "text" }
+      ]
+    },
+    {
+      "name": "FactEvents", "source": "events", "role": "fact",
+      "reason": "Decisions I06 (keep duplicates, flag), I14 (observation day); fields parsed out of value",
+      "steps": [
+        { "type": "index", "name": "EventID" },
+        { "type": "parse_fields", "from": "value", "fields": [
+          { "keys": ["offer id", "offer_id"], "name": "Offer ID", "type": "text" },
+          { "keys": ["amount"], "name": "Amount", "type": "number" },
+          { "keys": ["reward"], "name": "Reward", "type": "number" }
+        ] },
+        { "type": "int_divide", "from": "time", "by": 24, "name": "Observation Day" },
+        { "type": "repeat_flag", "name": "Is Repeated Row", "keys": ["customer_id", "event", "Offer ID", "Amount", "time"] }
+      ],
+      "select": [
+        { "name": "EventID", "type": "int" },
+        { "from": "customer_id", "name": "Customer ID", "type": "text" },
+        { "from": "event", "name": "Event", "type": "text" },
+        { "name": "Offer ID", "type": "text" },
+        { "name": "Reward", "type": "number", "sum": true },
+        { "name": "Amount", "type": "number", "sum": true },
+        { "from": "time", "name": "Hours Since Start", "type": "int" },
+        { "name": "Observation Day", "type": "int" },
+        { "name": "Is Repeated Row", "type": "logical" }
+      ]
+    },
+    {
+      "name": "DataDictionary", "source": "data_dictionary", "role": "documentation",
+      "reason": "Decision I11: blank Field marks a table description row",
+      "steps": [
+        { "type": "null_label", "from": "Field", "label": "(table description)" }
+      ],
+      "select": [
+        { "from": "Table", "name": "Table", "type": "text" },
+        { "from": "Field", "name": "Field", "type": "text" },
+        { "from": "Description", "name": "Description", "type": "text" }
+      ]
+    }
+  ]
+}
